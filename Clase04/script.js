@@ -7,7 +7,7 @@ const span = document.getElementById("miParrafo");
 //Observable
 const inputObservavble = fromEvent(input, 'input').pipe(
     map(()=> input.value),
-    switchMap(texto => new Observable(observer =>{
+    switchMap(texto => new Observable(observer =>{ //switchMap recibe un observable y los transforma en otro observable
         if(texto === "error"){
             observer.error("El usuario ingreso ERROR")
         } else if(texto === "complete"){
@@ -22,7 +22,7 @@ const inputObservavble = fromEvent(input, 'input').pipe(
 const subscripcion = inputObservavble.subscribe({
     next: (val) => span.innerHTML = val.split("").reverse().join(""),
     error: (error) => console.error(error),
-    complete: (complete) =>console.log(complete)
+    complete: (complete) =>console.info(complete)
 });
 
 setTimeout(()=>{
