@@ -61,4 +61,5 @@ archivo1.guardar({
     thumbnail: "URL_IMG_3",
     id: productos.length + 1});
 
+
 archivo1.leer();
